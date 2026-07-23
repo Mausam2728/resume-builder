@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <h1 class="main-title">Professional Resume Generator</h1>
+
+    <div class="container">
+        <!-- 1. Input Form Section -->
+        <div class="form-section">
+            <h2>Enter Your Details</h2>
+
+            <label><strong>Select Template:</strong></label>
+            <select id="templateSelect" onchange="changeTemplate()">
+                <option value="modern">Modern (Default)</option>
+                <option value="classic">Classic</option>
+                <option value="minimal">Minimalist</option>
+            </select>
+            
+            <form id="resumeForm" onsubmit="event.preventDefault(); downloadPDF();">
+                <label>Full Name *:</label>
+                <input type="text" id="nameInput" placeholder="e.g. Mausam Kumari" required oninput="saveAndUpdate()">
+
+                <label>Email *:</label>
+                <input type="email" id="emailInput" placeholder="mausam@example.com" required oninput="saveAndUpdate()">
+
+                <label>Phone Number *:</label>
+                <input type="text" id="phoneInput" placeholder="+91 9876543210" required oninput="saveAndUpdate()">
+
+                <!-- Social Links (Optional) -->
+                <label>LinkedIn URL (Optional):</label>
+                <input type="url" id="linkedinInput" placeholder="linkedin.com/in/username" oninput="saveAndUpdate()">
+
+                <label>GitHub / Portfolio URL (Optional):</label>
+                <input type="url" id="githubInput" placeholder="github.com/username" oninput="saveAndUpdate()">
+
+                <label>Professional Summary (Optional):</label>
+                <textarea id="summaryInput" rows="3" placeholder="Write a brief summary..." oninput="saveAndUpdate()"></textarea>
+
+                <label>Skills (comma separated) (Optional):</label>
+                <input type="text" id="skillsInput" placeholder="HTML, CSS, JavaScript, Java" oninput="saveAndUpdate()">
+
+                <!-- Dynamic Education Section -->
+                <div class="dynamic-header">
+                    <label>Education (Optional):</label>
+                    <button type="button" class="btn-add" onclick="addEducationField()">+ Add Education</button>
+                </div>
+                <div id="educationList">
+                    <input type="text" class="edu-input" placeholder="e.g. Class 12th / B.Tech (IT)" oninput="saveAndUpdate()">
+                </div>
+
+                <!-- Dynamic Experience Section -->
+                <div class="dynamic-header">
+                    <label>Experience / Projects (Optional):</label>
+                    <button type="button" class="btn-add" onclick="addExperienceField()">+ Add Experience</button>
+                </div>
+                <div id="experienceList">
+                    <input type="text" class="exp-input" placeholder="e.g. Web Developer Intern / School Project" oninput="saveAndUpdate()">
+                </div>
+
+                <!-- Dynamic Achievements Section -->
+                <div class="dynamic-header">
+                    <label>Achievements (Optional):</label>
+                    <button type="button" class="btn-add" onclick="addAchievementField()">+ Add Achievement</button>
+                </div>
+                <div id="achievementList">
+                    <input type="text" class="ach-input" placeholder="e.g. Won 1st prize in debate / coding competition" oninput="saveAndUpdate()">
+                </div>
+
+                <!-- Dynamic Certifications Section -->
+                <div class="dynamic-header">
+                    <label>Certifications (Optional):</label>
+                    <button type="button" class="btn-add" onclick="addCertificationField()">+ Add Certification</button>
+                </div>
+                <div id="certificationList">
+                    <input type="text" class="cert-input" placeholder="e.g. Web Development Certificate" oninput="saveAndUpdate()">
+                </div>
+
+                <button type="submit" class="btn-download">Download PDF</button>
+            </form>
+        </div>
+
+        <!-- 2. Live Preview Section -->
+        <div class="preview-section modern" id="resumePreview">
+            <div class="resume-header">
+                <h1 id="displayName">Mausam Kumari</h1>
+                <p class="contact-info">
+                    <span id="displayEmail">mausam@example.com</span>
+                    <span id="displayPhone"> | +91 9876543210</span>
+                    <span id="displayLinkedin"></span>
+                    <span id="displayGithub"></span>
+                </p>
+            </div>
+            <hr>
+            
+            <div class="resume-body">
+                <div id="secSummary" class="resume-sec">
+                    <h3>Profile Summary</h3>
+                    <p id="displaySummary"></p>
+                </div>
+
+                <div id="secSkills" class="resume-sec">
+                    <h3>Skills</h3>
+                    <p id="displaySkills"></p>
+                </div>
+
+                <div id="secEdu" class="resume-sec">
+                    <h3>Education</h3>
+                    <ul id="displayEducation"></ul>
+                </div>
+
+                <div id="secExp" class="resume-sec">
+                    <h3>Experience / Projects</h3>
+                    <ul id="displayExperience"></ul>
+                </div>
+
+                <div id="secAch" class="resume-sec">
+                    <h3>Achievements</h3>
+                    <ul id="displayAchievements"></ul>
+                </div>
+
+                <div id="secCert" class="resume-sec">
+                    <h3>Certifications</h3>
+                    <ul id="displayCertifications"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

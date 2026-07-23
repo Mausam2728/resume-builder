@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-section {
+    flex: 1;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+select, input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.dynamic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn-add {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-download {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* --- Preview Section Styles --- */
+.preview-section {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+.contact-info span {
+    font-size: 14px;
+    color: #555;
+}
+
+.resume-sec {
+    margin-top: 15px;
+}
+
+.resume-section ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 1. Modern Template Style */
+.preview-section.modern {
+    border-top: 6px solid #007bff;
+}
+.preview-section.modern h1, .preview-section.modern h3 {
+    color: #007bff;
+}
+
+/* 2. Classic Template Style */
+.preview-section.classic {
+    border: 2px solid #333;
+    font-family: 'Georgia', serif;
+}
+.preview-section.classic h1, .preview-section.classic h3 {
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* 3. Minimal Template Style */
+.preview-section.minimal {
+    background-color: #fafafa;
+    border-left: 4px solid #555;
+}
+.preview-section.minimal h1 {
+    color: #222;
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+}
